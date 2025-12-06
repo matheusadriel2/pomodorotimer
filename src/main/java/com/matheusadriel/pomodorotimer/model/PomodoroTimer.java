@@ -1,4 +1,4 @@
-package com.matheusadriel.model;
+package com.matheusadriel.pomodorotimer.model;
 
 import java.util.Timer;
 import java.util.TimerTask;
