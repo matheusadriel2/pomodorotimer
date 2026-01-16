@@ -10,10 +10,10 @@ import javafx.scene.shape.StrokeLineCap;
 
 public class CircularProgress extends Pane {
     private static final double STROKE_WIDTH = 7.0;
-    private Circle backgroundCircle;
-    private Arc progressArc;
+    private final Circle backgroundCircle;
+    private final Arc progressArc;
     private double progress = 0.0;
-    private DropShadow glowEffect;
+    private final DropShadow glowEffect;
     
     public CircularProgress(double radius) {
         double size = radius * 2 + STROKE_WIDTH * 2;
@@ -23,13 +23,13 @@ public class CircularProgress extends Pane {
         setMinSize(size, size);
         setMaxSize(size, size);
         
-        // Círculo de fundo (sutil)
+        // Background circle (subtle)
         backgroundCircle = new Circle(center, center, radius);
         backgroundCircle.setFill(Color.TRANSPARENT);
         backgroundCircle.setStroke(Color.rgb(255, 255, 255, 0.08));
         backgroundCircle.setStrokeWidth(STROKE_WIDTH);
         
-        // Arco de progresso - começa do topo (90 graus)
+        // Progress arc - starts from top (90 degrees)
         progressArc = new Arc(center, center, radius, radius, 90, 0);
         progressArc.setType(ArcType.OPEN);
         progressArc.setFill(Color.TRANSPARENT);
@@ -37,7 +37,7 @@ public class CircularProgress extends Pane {
         progressArc.setStrokeWidth(STROKE_WIDTH);
         progressArc.setStrokeLineCap(StrokeLineCap.ROUND);
         
-        // Efeito de glow sutil
+        // Subtle glow effect
         glowEffect = new DropShadow();
         glowEffect.setColor(Color.rgb(255, 107, 107, 0.5));
         glowEffect.setRadius(14);
@@ -55,7 +55,7 @@ public class CircularProgress extends Pane {
             progressArc.setVisible(false);
         } else {
             progressArc.setVisible(true);
-            // Começar do topo (90 graus) e preencher no sentido horário (ângulo negativo)
+            // Start from top (90 degrees) and fill clockwise (negative angle)
             double angle = -360 * this.progress;
             progressArc.setLength(angle);
         }
@@ -67,8 +67,8 @@ public class CircularProgress extends Pane {
     
     public void setProgressColor(Color color) {
         progressArc.setStroke(color);
-        // Atualizar cor do glow
-        glowEffect.setColor(Color.color(
+        // Update glow color
+        glowEffect.setColor(new Color(
             color.getRed(), 
             color.getGreen(), 
             color.getBlue(), 
@@ -76,3 +76,4 @@ public class CircularProgress extends Pane {
         ));
     }
 }
+

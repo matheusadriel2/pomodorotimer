@@ -20,22 +20,10 @@ public class MiniTimerController implements TimerListener {
     private VBox root;
     
     @FXML
-    private Label dragArea;
-    
-    @FXML
     private Label timeLabel;
     
     @FXML
-    private Label typeIndicator;
-    
-    @FXML
     private Button playPauseButton;
-    
-    @FXML
-    private Button resetButton;
-    
-    @FXML
-    private Button expandButton;
     
     private PomodoroTimer timer;
     private double xOffset = 0;
@@ -43,7 +31,7 @@ public class MiniTimerController implements TimerListener {
     
     @FXML
     public void initialize() {
-        // Setup drag functionality
+        // Setup drag functionality for the whole window
         root.setOnMousePressed(this::onMousePressed);
         root.setOnMouseDragged(this::onMouseDragged);
     }
@@ -144,3 +132,4 @@ public class MiniTimerController implements TimerListener {
         }
     }
 }
+

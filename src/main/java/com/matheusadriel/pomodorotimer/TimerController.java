@@ -5,6 +5,7 @@ import com.matheusadriel.pomodorotimer.model.PomodoroTimer;
 import com.matheusadriel.pomodorotimer.model.TimerSettings;
 import com.matheusadriel.pomodorotimer.model.TimerType;
 import com.matheusadriel.pomodorotimer.ui.CircularProgress;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -26,14 +27,6 @@ public class TimerController implements TimerListener {
 
     @FXML
     private Label timeLabel;
-    
-    // Status and Type labels removed from FXML but keeping fields if simpler, 
-    // or better yet, removing them if I remove from FXML.
-    // The user asked to remove them. I already removed them from FXML in Step 203.
-    // So I should remove them here too.
-    
-    // @FXML private Label statusLabel; // Removed
-    // @FXML private Label typeLabel;   // Removed
     
     @FXML
     private Button startPauseButton;
@@ -85,17 +78,16 @@ public class TimerController implements TimerListener {
     
     @FXML
     private void onCloseClick() {
-        javafx.application.Platform.exit();
+        Platform.exit();
         System.exit(0);
     }
     
     @FXML
     public void initialize() {
-        // Criar anel de progresso programaticamente
+        // Create progress ring programmatically
         progressRing = new CircularProgress(114.0);
         progressContainer.getChildren().add(0, progressRing);
         
-        // Timer will be set by PomodoroApplication
         setupTimeButtons();
         updateProgressColor();
     }
@@ -108,7 +100,6 @@ public class TimerController implements TimerListener {
         timer.addListener(this);
         
         updateTimerDisplay();
-        // updateTypeLabel(); // Removed
         updateProgressColor();
     }
     
@@ -116,9 +107,7 @@ public class TimerController implements TimerListener {
         if (timer != null) {
             currentType = timer.getTimerType();
             updateTimerDisplay();
-            // updateTypeLabel(); // Removed
             updateProgressColor();
-            
             updatePlayButtonState(timer.isRunning());
         }
     }
@@ -141,7 +130,6 @@ public class TimerController implements TimerListener {
         if (timer == null) return;
         
         timer.reset();
-        // Reset button state to Start (Play icon)
         updatePlayButtonState(false);
         updateTimerDisplay();
     }
@@ -159,12 +147,9 @@ public class TimerController implements TimerListener {
             stage.setResizable(false);
             stage.showAndWait();
             
-            // Refresh display to reflect any changes
             refreshDisplay();
-            
         } catch (IOException e) {
             e.printStackTrace();
-            // updateStatus("Erro ao abrir settings"); // Removed
         }
     }
     
@@ -186,18 +171,18 @@ public class TimerController implements TimerListener {
     public void onFinish() {
         updatePlayButtonState(false);
         
-        // Transição automática para break após focus
+        // Auto transition to break after focus
         if (currentType == TimerType.FOCUS) {
             completedSessions++;
             
-            // Determinar tipo de break
+            // Determine break type
             TimerType nextType = (completedSessions % settings.getLongBreakAfter() == 0) 
                 ? TimerType.LONG_BREAK 
                 : TimerType.SHORT_BREAK;
             
             switchToTimerType(nextType);
         } else {
-            // Voltar para focus após break
+            // Return to focus after break
             switchToTimerType(TimerType.FOCUS);
         }
     }
@@ -216,7 +201,6 @@ public class TimerController implements TimerListener {
             timer.setDuration(duration);
             timer.setTimerType(type);
         }
-        // updateTypeLabel(); // Removed
         updateTimerDisplay();
         updateProgressColor();
     }
@@ -234,12 +218,8 @@ public class TimerController implements TimerListener {
         }
     }
     
-    // Status label logic removed
-    
-    // Type label logic removed
-    
     private void updateProgressColor() {
-        // Cor baseada no tipo de timer
+        // Color based on timer type
         Color color = switch (currentType) {
             case FOCUS -> Color.web("#ffb900"); // Amber matching mini-timer
             case SHORT_BREAK, LONG_BREAK -> Color.web("#4cc2ff"); // Blue matching mini-timer
@@ -249,11 +229,10 @@ public class TimerController implements TimerListener {
     
     private void setupTimeButtons() {
         timeButtonsContainer.getChildren().clear();
-        int[] predefinedTimes = {50, 25, 10, 5}; // minutos
+        int[] predefinedTimes = {50, 25, 10, 5}; // minutes
         
         for (int minutes : predefinedTimes) {
             Button timeButton = new Button();
-            // timeButton.setText(String.valueOf(minutes)); // Removed text
             timeButton.getStyleClass().add("time-preset-button");
             
             timeButton.setOnAction(e -> setTimerDuration(minutes * 60));
@@ -290,3 +269,4 @@ public class TimerController implements TimerListener {
         }
     }
 }
+
