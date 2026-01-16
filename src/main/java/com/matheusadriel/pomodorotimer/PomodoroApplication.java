@@ -29,11 +29,11 @@ public class PomodoroApplication extends Application {
         primaryStage = stage;
         Platform.setImplicitExit(false);
         
-        // Initialize shared state
+        
         sharedSettings = new TimerSettings();
         sharedTimer = new PomodoroTimer(sharedSettings.getFocusDurationSeconds(), TimerType.FOCUS);
         
-        // Load main view
+        
         FXMLLoader fxmlLoader = new FXMLLoader(PomodoroApplication.class.getResource("timer-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 375, 525);
         mainController = fxmlLoader.getController();
@@ -53,12 +53,12 @@ public class PomodoroApplication extends Application {
                 createMiniStage();
             }
             
-            // Get position to place mini timer (bottom right of screen)
+            
             javafx.geometry.Rectangle2D screenBounds = javafx.stage.Screen.getPrimary().getVisualBounds();
             double x = screenBounds.getMaxX() - 220;
             double y = screenBounds.getMaxY() - 120;
             
-            // Or place where main window was
+            
             if (primaryStage != null && primaryStage.isShowing()) {
                 x = primaryStage.getX() + primaryStage.getWidth() - 200;
                 y = primaryStage.getY();
@@ -85,7 +85,7 @@ public class PomodoroApplication extends Application {
             miniStage.hide();
         }
         
-        // Update main controller with current timer state
+        
         if (mainController != null) {
             mainController.refreshDisplay();
         }
@@ -93,7 +93,7 @@ public class PomodoroApplication extends Application {
     
     private static void createMiniStage() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(PomodoroApplication.class.getResource("mini-timer.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 180, 180); // Compact Square layout
+        Scene scene = new Scene(fxmlLoader.load(), 180, 180); 
         scene.setFill(Color.TRANSPARENT);
         
         miniController = fxmlLoader.getController();
@@ -119,3 +119,4 @@ public class PomodoroApplication extends Application {
         return sharedSettings;
     }
 }
+

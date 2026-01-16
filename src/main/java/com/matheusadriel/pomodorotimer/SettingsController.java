@@ -25,10 +25,10 @@ public class SettingsController {
 
     @FXML
     public void initialize() {
-        // Load shared settings
+        
         this.settings = PomodoroApplication.getSharedSettings();
 
-        // Setup spinners with value factories
+        
         focusDurationSpinner.setValueFactory(
             new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 60, settings.getFocusDuration())
         );
@@ -48,18 +48,18 @@ public class SettingsController {
 
     @FXML
     protected void onSave() {
-        // Update settings
+        
         settings.setFocusDuration(focusDurationSpinner.getValue());
         settings.setShortBreakDuration(shortBreakSpinner.getValue());
         settings.setLongBreakDuration(longBreakSpinner.getValue());
         settings.setLongBreakAfter(longBreakAfterSpinner.getValue());
 
-        // Close window
+        
         closeWindow();
         
-        // Notify main controller to refresh?
-        // Since we are modifying the shared instance, calling refreshDisplay() in the main controller
-        // after the modal closes (in TimerController) is enough.
+        
+        
+        
     }
 
     @FXML
@@ -72,3 +72,4 @@ public class SettingsController {
         stage.close();
     }
 }
+

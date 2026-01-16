@@ -1,14 +1,14 @@
-/* Pomodoro Timer - Modern Dark Theme */
 
-/* ===== ROOT & GLOBALS ===== */
+
+
 .root {
-    background-color: transparent; /* Use transparent root */
+    background-color: transparent; 
     -fx-background-color: transparent;
     font-family: "Segoe UI", "SF Pro Display", "Inter", sans-serif;
     -fx-font-family: "Segoe UI", "SF Pro Display", "Inter", system;
 }
 
-/* ===== MAIN CONTAINER ===== */
+
 .timer-container {
     background-color: #202020;
     -fx-background-color: #202020;
@@ -21,25 +21,25 @@
     -fx-border-radius: 16px;
 }
 
-/* ===== HEADER ===== */
+
 .header-bar {
     padding: 0;
     -fx-padding: 0;
-    min-height: 32px; /* Standard windows height */
+    min-height: 32px; 
     -fx-min-height: 32px;
     background-color: transparent;
-    -fx-background-color: transparent; /* Shared with container */
+    -fx-background-color: transparent; 
     -fx-background-radius: 16px 16px 0 0;
     border-width: 0;
-    -fx-border-width: 0; /* Border handled by container */
+    -fx-border-width: 0; 
 }
 
-/* Window Control Buttons */
+
 .window-button {
     background-color: transparent;
     -fx-background-color: transparent;
     -fx-text-fill: #a0a0a0;
-    min-width: 44px; /* Slightly wider buttons for better hit area, matching Windows */
+    min-width: 44px; 
     -fx-min-width: 44px;
     min-height: 32px;
     -fx-min-height: 32px;
@@ -47,7 +47,7 @@
     -fx-max-width: 44px;
     max-height: 32px;
     -fx-max-height: 32px;
-    -fx-background-radius: 0; /* Square for title buttons usually looks better when edge-to-edge */
+    -fx-background-radius: 0; 
     cursor: pointer;
     -fx-cursor: hand;
     padding: 0;
@@ -91,7 +91,7 @@
     -fx-spacing: 0px;
 }
 
-/* ===== TIME DISPLAY ===== */
+
 .time-display {
     -fx-text-fill: #ffffff;
     font-weight: 300;
@@ -100,16 +100,16 @@
     -fx-font-size: 66px;
 }
 
-/* ===== TIME PRESET BUTTONS ===== */
+
 .time-presets-container { 
-    -fx-spacing: 8px; /* Closer together */
+    -fx-spacing: 8px; 
     -fx-alignment: center;
 }
 
 .time-preset-button {
-    background-color: rgba(255, 255, 255, 0.2); /* Slightly visible by default */
+    background-color: rgba(255, 255, 255, 0.2); 
     -fx-background-color: rgba(255, 255, 255, 0.2);
-    min-width: 10px; /* Reduced by 15% */
+    min-width: 10px; 
     -fx-min-width: 10px;
     min-height: 10px;
     -fx-min-height: 10px;
@@ -125,23 +125,23 @@
 }
 
 .time-preset-button:hover {
-    background-color: #ffb900; /* Use accent color on hover */
+    background-color: #ffb900; 
     -fx-background-color: #ffb900;
 }
 
-/* ===== CONTROL BUTTONS ===== */
+
 .controls-container {
     padding: 8px 0 32px 0;
     -fx-padding: 8px 0 32px 0;
     -fx-spacing: 16px;
 }
 
-/* Margin for elements inside container since we removed container padding */
+
 .timer-container > .children > * {
     padding: 0 24px;
     -fx-padding: 0 24px;
 }
-/* Specifically for the header we want it flush, but others not */
+
 .header-bar {
     -fx-border-insets: 0;
     -fx-background-insets: 0;
@@ -151,7 +151,7 @@
     background-color: #ffb900;
     -fx-background-color: #ffb900;
     -fx-text-fill: #222222;
-    min-width: 58px; /* Reduced by 10% from 64px */
+    min-width: 58px; 
     -fx-min-width: 58px;
     min-height: 58px;
     -fx-min-height: 58px;
@@ -176,7 +176,7 @@
     background-color: rgba(255, 255, 255, 0.06);
     -fx-background-color: rgba(255, 255, 255, 0.06);
     -fx-text-fill: rgba(255, 255, 255, 0.6);
-    min-width: 39px; /* Reduced by 25% from 52px */
+    min-width: 39px; 
     -fx-min-width: 39px;
     min-height: 39px;
     -fx-min-height: 39px;
@@ -198,7 +198,7 @@
     -fx-text-fill: rgba(255, 255, 255, 0.95);
 }
 
-/* ===== SESSION INDICATORS ===== */
+
 .session-dots {
     -fx-spacing: 10px;
 }
@@ -222,7 +222,7 @@
     -fx-background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* ===== FOCUS TYPE COLORS ===== */
+
 .focus-mode .type-label {
     background-color: rgba(246, 48, 73, 0.15);
     -fx-background-color: rgba(246, 48, 73, 0.15);
@@ -230,10 +230,10 @@
 
 .break-mode .type-label {
     background-color: rgba(138, 36, 75, 0.25);
-    -fx-background-color: rgba(138, 36, 75, 0.25); /* #8A244B for break */
+    -fx-background-color: rgba(138, 36, 75, 0.25); 
 }
 
-/* ===== SETTINGS SPINNER ===== */
+
 .settings-spinner {
     background-color: rgba(255, 255, 255, 0.1);
     -fx-background-color: rgba(255, 255, 255, 0.1);
@@ -268,3 +268,4 @@
     -fx-background-color: rgba(255, 255, 255, 0.7);
     background-color: rgba(255, 255, 255, 0.7);
 }
+

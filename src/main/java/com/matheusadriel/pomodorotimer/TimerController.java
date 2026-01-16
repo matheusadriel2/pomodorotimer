@@ -84,7 +84,7 @@ public class TimerController implements TimerListener {
     
     @FXML
     public void initialize() {
-        // Create progress ring programmatically
+        
         progressRing = new CircularProgress(114.0);
         progressContainer.getChildren().add(0, progressRing);
         
@@ -171,18 +171,18 @@ public class TimerController implements TimerListener {
     public void onFinish() {
         updatePlayButtonState(false);
         
-        // Auto transition to break after focus
+        
         if (currentType == TimerType.FOCUS) {
             completedSessions++;
             
-            // Determine break type
+            
             TimerType nextType = (completedSessions % settings.getLongBreakAfter() == 0) 
                 ? TimerType.LONG_BREAK 
                 : TimerType.SHORT_BREAK;
             
             switchToTimerType(nextType);
         } else {
-            // Return to focus after break
+            
             switchToTimerType(TimerType.FOCUS);
         }
     }
@@ -219,17 +219,17 @@ public class TimerController implements TimerListener {
     }
     
     private void updateProgressColor() {
-        // Color based on timer type
+        
         Color color = switch (currentType) {
-            case FOCUS -> Color.web("#ffb900"); // Amber matching mini-timer
-            case SHORT_BREAK, LONG_BREAK -> Color.web("#4cc2ff"); // Blue matching mini-timer
+            case FOCUS -> Color.web("#ffb900"); 
+            case SHORT_BREAK, LONG_BREAK -> Color.web("#4cc2ff"); 
         };
         progressRing.setProgressColor(color);
     }
     
     private void setupTimeButtons() {
         timeButtonsContainer.getChildren().clear();
-        int[] predefinedTimes = {50, 25, 10, 5}; // minutes
+        int[] predefinedTimes = {50, 25, 10, 5}; 
         
         for (int minutes : predefinedTimes) {
             Button timeButton = new Button();
@@ -269,4 +269,5 @@ public class TimerController implements TimerListener {
         }
     }
 }
+
 

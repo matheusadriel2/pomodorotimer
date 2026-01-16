@@ -1,10 +1,10 @@
 package com.matheusadriel.pomodorotimer.model;
 
 public class TimerSettings {
-    private int focusDuration = 25; // minutes
-    private int shortBreakDuration = 5; // minutes
-    private int longBreakDuration = 15; // minutes
-    private int longBreakAfter = 4; // sessions
+    private int focusDuration = 25; 
+    private int shortBreakDuration = 5; 
+    private int longBreakDuration = 15; 
+    private int longBreakAfter = 4; 
     
     public int getFocusDuration() {
         return focusDuration;
@@ -50,4 +50,5 @@ public class TimerSettings {
         return longBreakDuration * 60;
     }
 }
+
 

@@ -23,13 +23,13 @@ public class CircularProgress extends Pane {
         setMinSize(size, size);
         setMaxSize(size, size);
         
-        // Background circle (subtle)
+        
         backgroundCircle = new Circle(center, center, radius);
         backgroundCircle.setFill(Color.TRANSPARENT);
         backgroundCircle.setStroke(Color.rgb(255, 255, 255, 0.08));
         backgroundCircle.setStrokeWidth(STROKE_WIDTH);
         
-        // Progress arc - starts from top (90 degrees)
+        
         progressArc = new Arc(center, center, radius, radius, 90, 0);
         progressArc.setType(ArcType.OPEN);
         progressArc.setFill(Color.TRANSPARENT);
@@ -37,7 +37,7 @@ public class CircularProgress extends Pane {
         progressArc.setStrokeWidth(STROKE_WIDTH);
         progressArc.setStrokeLineCap(StrokeLineCap.ROUND);
         
-        // Subtle glow effect
+        
         glowEffect = new DropShadow();
         glowEffect.setColor(Color.rgb(255, 107, 107, 0.5));
         glowEffect.setRadius(14);
@@ -55,7 +55,7 @@ public class CircularProgress extends Pane {
             progressArc.setVisible(false);
         } else {
             progressArc.setVisible(true);
-            // Start from top (90 degrees) and fill clockwise (negative angle)
+            
             double angle = -360 * this.progress;
             progressArc.setLength(angle);
         }
@@ -67,7 +67,7 @@ public class CircularProgress extends Pane {
     
     public void setProgressColor(Color color) {
         progressArc.setStroke(color);
-        // Update glow color
+        
         glowEffect.setColor(new Color(
             color.getRed(), 
             color.getGreen(), 
@@ -76,4 +76,5 @@ public class CircularProgress extends Pane {
         ));
     }
 }
+
 

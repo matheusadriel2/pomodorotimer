@@ -1,4 +1,4 @@
-/* Mini Timer Styles - Windows Clock Inspired */
+
 
 .mini-timer-root {
     -fx-background-color: #202020;
@@ -7,7 +7,7 @@
     -fx-border-radius: 8px;
     -fx-border-width: 1px;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.4), 20, 0, 0, 4);
-    -fx-padding: 10px; /* Reduced by 15% */
+    -fx-padding: 10px; 
 }
 
 .mini-header {
@@ -23,7 +23,7 @@
     -fx-background-color: transparent;
     -fx-cursor: hand;
     -fx-padding: 5px;
-    -fx-min-width: 25px; /* Reduced by 10% */
+    -fx-min-width: 25px; 
     -fx-min-height: 25px;
 }
 
@@ -40,35 +40,35 @@
     -fx-fill: #ffffff;
 }
 
-/* Time Display */
+
 .mini-time-display {
     -fx-text-fill: #ffffff;
-    -fx-font-size: 34px; /* Increased by 15% */
+    -fx-font-size: 34px; 
     -fx-font-weight: bold;
     -fx-font-family: "Segoe UI Light", "Segoe UI", "sans-serif";
-    -fx-effect: null; /* Clean, no shadow on text */
+    -fx-effect: null; 
 }
 
 .mini-type-indicator {
-    -fx-text-fill: #ff0000; /* Amber for Focus */
+    -fx-text-fill: #ff0000; 
     -fx-font-size: 10px;
-    -fx-opacity: 0.0; /* Hide by default for cleaner look, or subtle */
+    -fx-opacity: 0.0; 
 }
 
 .mini-type-indicator.break {
-    -fx-text-fill: #4cc2ff; /* Blue for Break */
+    -fx-text-fill: #4cc2ff; 
 }
 
-/* Controls */
+
 .mini-controls {
     -fx-padding: 10px;
 }
 
-/* Play Button (Amber, Windows Accent) */
+
 .mini-play-button {
     -fx-background-color: #ffb900;
     -fx-text-fill: white;
-    -fx-min-width: 32px; /* Increased by 10% */
+    -fx-min-width: 32px; 
     -fx-min-height: 32px;
     -fx-max-width: 32px;
     -fx-max-height: 32px;
@@ -76,34 +76,34 @@
     -fx-cursor: hand;
     -fx-alignment: center;
     -fx-padding: 0;
-    -fx-effect: null; /* Flat design */
+    -fx-effect: null; 
 }
 
 .mini-play-button:hover {
-    -fx-background-color: #ffcd33; /* Lighter amber */
+    -fx-background-color: #ffcd33; 
 }
 
 .mini-play-button:pressed {
-    -fx-background-color: #e5a600; /* Darker amber */
+    -fx-background-color: #e5a600; 
     -fx-scale-x: 0.96;
     -fx-scale-y: 0.96;
 }
 
-/* Running state - Pause */
+
 .mini-play-button.running {
     -fx-background-color: #ffb900;
 }
 
 .mini-play-button SVGPath {
-    -fx-fill: #202020; /* Dark icon on amber button for contrast */
+    -fx-fill: #202020; 
     -fx-scale-x: 1;
     -fx-scale-y: 1;
 }
 
-/* Reset Button (Subtle Circle) */
+
 .mini-reset-button {
     -fx-background-color: #333333;
-    -fx-min-width: 32px; /* Increased by 10% */
+    -fx-min-width: 32px; 
     -fx-min-height: 32px;
     -fx-max-width: 32px;
     -fx-max-height: 32px;
@@ -129,3 +129,4 @@
     -fx-scale-x: 1;
     -fx-scale-y: 1;
 }
+
