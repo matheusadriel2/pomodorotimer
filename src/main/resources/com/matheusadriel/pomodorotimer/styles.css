@@ -1,0 +1,270 @@
+/* Pomodoro Timer - Modern Dark Theme */
+
+/* ===== ROOT & GLOBALS ===== */
+.root {
+    background-color: transparent; /* Use transparent root */
+    -fx-background-color: transparent;
+    font-family: "Segoe UI", "SF Pro Display", "Inter", sans-serif;
+    -fx-font-family: "Segoe UI", "SF Pro Display", "Inter", system;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.timer-container {
+    background-color: #202020;
+    -fx-background-color: #202020;
+    -fx-background-radius: 16px;
+    border-color: rgba(255, 255, 255, 0.1);
+    -fx-border-color: rgba(255, 255, 255, 0.1);
+    border-width: 1px;
+    -fx-border-width: 1px;
+    border-radius: 16px;
+    -fx-border-radius: 16px;
+}
+
+/* ===== HEADER ===== */
+.header-bar {
+    padding: 0;
+    -fx-padding: 0;
+    min-height: 32px; /* Standard windows height */
+    -fx-min-height: 32px;
+    background-color: transparent;
+    -fx-background-color: transparent; /* Shared with container */
+    -fx-background-radius: 16px 16px 0 0;
+    border-width: 0;
+    -fx-border-width: 0; /* Border handled by container */
+}
+
+/* Window Control Buttons */
+.window-button {
+    background-color: transparent;
+    -fx-background-color: transparent;
+    -fx-text-fill: #a0a0a0;
+    min-width: 44px; /* Slightly wider buttons for better hit area, matching Windows */
+    -fx-min-width: 44px;
+    min-height: 32px;
+    -fx-min-height: 32px;
+    max-width: 44px;
+    -fx-max-width: 44px;
+    max-height: 32px;
+    -fx-max-height: 32px;
+    -fx-background-radius: 0; /* Square for title buttons usually looks better when edge-to-edge */
+    cursor: pointer;
+    -fx-cursor: hand;
+    padding: 0;
+    -fx-padding: 0;
+}
+
+.window-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
+.close-button {
+    background-color: transparent;
+    -fx-background-color: transparent;
+    -fx-text-fill: #a0a0a0;
+    min-width: 44px;
+    -fx-min-width: 44px;
+    min-height: 32px;
+    -fx-min-height: 32px;
+    max-width: 46px;
+    -fx-max-width: 46px;
+    max-height: 32px;
+    -fx-max-height: 32px;
+    -fx-background-radius: 0 15px 0 0; 
+    cursor: pointer;
+    -fx-cursor: hand;
+    padding: 0;
+    -fx-padding: 0;
+}
+
+.close-button:hover {
+    background-color: #c42b1c;
+    -fx-background-color: #c42b1c;
+}
+.close-button:hover > .graphic > SVGPath {
+    -fx-fill: white;
+    fill: white;
+}
+
+.timer-container {
+    -fx-spacing: 0px;
+}
+
+/* ===== TIME DISPLAY ===== */
+.time-display {
+    -fx-text-fill: #ffffff;
+    font-weight: 300;
+    -fx-font-weight: 300;
+    font-size: 66px;
+    -fx-font-size: 66px;
+}
+
+/* ===== TIME PRESET BUTTONS ===== */
+.time-presets-container { 
+    -fx-spacing: 8px; /* Closer together */
+    -fx-alignment: center;
+}
+
+.time-preset-button {
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly visible by default */
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    min-width: 10px; /* Reduced by 15% */
+    -fx-min-width: 10px;
+    min-height: 10px;
+    -fx-min-height: 10px;
+    max-width: 10px;
+    -fx-max-width: 10px;
+    max-height: 10px;
+    -fx-max-height: 10px;
+    -fx-background-radius: 50%;
+    cursor: pointer;
+    -fx-cursor: hand;
+    padding: 0;
+    -fx-padding: 0;
+}
+
+.time-preset-button:hover {
+    background-color: #ffb900; /* Use accent color on hover */
+    -fx-background-color: #ffb900;
+}
+
+/* ===== CONTROL BUTTONS ===== */
+.controls-container {
+    padding: 8px 0 32px 0;
+    -fx-padding: 8px 0 32px 0;
+    -fx-spacing: 16px;
+}
+
+/* Margin for elements inside container since we removed container padding */
+.timer-container > .children > * {
+    padding: 0 24px;
+    -fx-padding: 0 24px;
+}
+/* Specifically for the header we want it flush, but others not */
+.header-bar {
+    -fx-border-insets: 0;
+    -fx-background-insets: 0;
+}
+
+.start-button, .pause-button {
+    background-color: #ffb900;
+    -fx-background-color: #ffb900;
+    -fx-text-fill: #222222;
+    min-width: 58px; /* Reduced by 10% from 64px */
+    -fx-min-width: 58px;
+    min-height: 58px;
+    -fx-min-height: 58px;
+    max-width: 58px;
+    -fx-max-width: 58px;
+    max-height: 58px;
+    -fx-max-height: 58px;
+    -fx-background-radius: 50%;
+    cursor: pointer;
+    -fx-cursor: hand;
+    -fx-alignment: center;
+    padding: 0;
+    -fx-padding: 0;
+}
+
+.start-button:hover, .pause-button:hover {
+    background-color: #ffcd33;
+    -fx-background-color: #ffcd33;
+}
+
+.icon-button {
+    background-color: rgba(255, 255, 255, 0.06);
+    -fx-background-color: rgba(255, 255, 255, 0.06);
+    -fx-text-fill: rgba(255, 255, 255, 0.6);
+    min-width: 39px; /* Reduced by 25% from 52px */
+    -fx-min-width: 39px;
+    min-height: 39px;
+    -fx-min-height: 39px;
+    max-width: 39px;
+    -fx-max-width: 39px;
+    max-height: 39px;
+    -fx-max-height: 39px;
+    -fx-background-radius: 50%;
+    cursor: pointer;
+    -fx-cursor: hand;
+    padding: 0;
+    -fx-padding: 0;
+    -fx-alignment: center;
+}
+
+.icon-button:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    -fx-background-color: rgba(255, 255, 255, 0.12);
+    -fx-text-fill: rgba(255, 255, 255, 0.95);
+}
+
+/* ===== SESSION INDICATORS ===== */
+.session-dots {
+    -fx-spacing: 10px;
+}
+
+.session-dot {
+    background-color: #ffb900;
+    -fx-background-color: #ffb900;
+    -fx-background-radius: 50%;
+    min-width: 10px;
+    -fx-min-width: 10px;
+    min-height: 10px;
+    -fx-min-height: 10px;
+    max-width: 10px;
+    -fx-max-width: 10px;
+    max-height: 10px;
+    -fx-max-height: 10px;
+}
+
+.session-dot-empty {
+    background-color: rgba(255, 255, 255, 0.15);
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ===== FOCUS TYPE COLORS ===== */
+.focus-mode .type-label {
+    background-color: rgba(246, 48, 73, 0.15);
+    -fx-background-color: rgba(246, 48, 73, 0.15);
+}
+
+.break-mode .type-label {
+    background-color: rgba(138, 36, 75, 0.25);
+    -fx-background-color: rgba(138, 36, 75, 0.25); /* #8A244B for break */
+}
+
+/* ===== SETTINGS SPINNER ===== */
+.settings-spinner {
+    background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 6px;
+    border-radius: 6px;
+    -fx-border-radius: 6px;
+}
+
+.settings-spinner .text-field {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-text-fill: white;
+    color: white;
+    -fx-alignment: center-right;
+}
+
+.settings-spinner .increment-arrow-button,
+.settings-spinner .decrement-arrow-button {
+    background-color: transparent;
+    -fx-background-color: transparent;
+    padding: 4px;
+    -fx-padding: 4px;
+}
+
+.settings-spinner .increment-arrow-button:hover,
+.settings-spinner .decrement-arrow-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.settings-spinner .arrow {
+    -fx-background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.7);
+}

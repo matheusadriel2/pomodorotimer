@@ -1,0 +1,131 @@
+/* Mini Timer Styles - Windows Clock Inspired */
+
+.mini-timer-root {
+    -fx-background-color: #202020;
+    -fx-background-radius: 8px;
+    -fx-border-color: #333333;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.4), 20, 0, 0, 4);
+    -fx-padding: 10px; /* Reduced by 15% */
+}
+
+.mini-header {
+    -fx-padding: 0;
+}
+
+.drag-area {
+    -fx-cursor: move;
+    -fx-background-color: transparent;
+}
+
+.mini-icon-button {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 5px;
+    -fx-min-width: 25px; /* Reduced by 10% */
+    -fx-min-height: 25px;
+}
+
+.mini-icon-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-background-radius: 4px;
+}
+
+.mini-icon-button SVGPath {
+    -fx-fill: #a0a0a0;
+}
+
+.mini-icon-button:hover SVGPath {
+    -fx-fill: #ffffff;
+}
+
+/* Time Display */
+.mini-time-display {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 34px; /* Increased by 15% */
+    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI Light", "Segoe UI", "sans-serif";
+    -fx-effect: null; /* Clean, no shadow on text */
+}
+
+.mini-type-indicator {
+    -fx-text-fill: #ff0000; /* Amber for Focus */
+    -fx-font-size: 10px;
+    -fx-opacity: 0.0; /* Hide by default for cleaner look, or subtle */
+}
+
+.mini-type-indicator.break {
+    -fx-text-fill: #4cc2ff; /* Blue for Break */
+}
+
+/* Controls */
+.mini-controls {
+    -fx-padding: 10px;
+}
+
+/* Play Button (Amber, Windows Accent) */
+.mini-play-button {
+    -fx-background-color: #ffb900;
+    -fx-text-fill: white;
+    -fx-min-width: 32px; /* Increased by 10% */
+    -fx-min-height: 32px;
+    -fx-max-width: 32px;
+    -fx-max-height: 32px;
+    -fx-background-radius: 50%;
+    -fx-cursor: hand;
+    -fx-alignment: center;
+    -fx-padding: 0;
+    -fx-effect: null; /* Flat design */
+}
+
+.mini-play-button:hover {
+    -fx-background-color: #ffcd33; /* Lighter amber */
+}
+
+.mini-play-button:pressed {
+    -fx-background-color: #e5a600; /* Darker amber */
+    -fx-scale-x: 0.96;
+    -fx-scale-y: 0.96;
+}
+
+/* Running state - Pause */
+.mini-play-button.running {
+    -fx-background-color: #ffb900;
+}
+
+.mini-play-button SVGPath {
+    -fx-fill: #202020; /* Dark icon on amber button for contrast */
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+}
+
+/* Reset Button (Subtle Circle) */
+.mini-reset-button {
+    -fx-background-color: #333333;
+    -fx-min-width: 32px; /* Increased by 10% */
+    -fx-min-height: 32px;
+    -fx-max-width: 32px;
+    -fx-max-height: 32px;
+    -fx-background-radius: 50%;
+    -fx-cursor: hand;
+    -fx-alignment: center;
+    -fx-content-display: center;
+    -fx-padding: 0;
+}
+
+.mini-reset-button:hover {
+    -fx-background-color: #444444;
+}
+
+.mini-reset-button:pressed {
+    -fx-background-color: #2a2a2a;
+    -fx-scale-x: 0.96;
+    -fx-scale-y: 0.96;
+}
+
+.mini-reset-button SVGPath {
+    -fx-fill: #ffffff;
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+}
